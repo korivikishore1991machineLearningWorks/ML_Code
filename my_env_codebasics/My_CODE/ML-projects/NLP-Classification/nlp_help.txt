@@ -1,0 +1,42 @@
+https://www.youtube.com/playlist?list=PLZoTAELRMXVMdJ5sqbCK2LiM0HhQVWNzm
+https://github.com/krishnaik06/Natural-Language-Processing
+
+Data Preprocessing:
+Tokenize the document to convert it to words.
+Stemming: 
+          The process of reducing infected words to their STEM. 
+          best useful in classification algorithms
+Lemmatization: 
+               Is Stemming resulting in a more meanful representation.
+               Requires more computing time then Stemming, useful when returning output to Users.
+Bag of words: 
+              After Stemming/Lemmatization
+			  Convert a given document/sentance to words and they counts to represent in Vector format.
+              Equal representation to every word
+			  no order precedency is taken into account.
+			  For small Datasets use Bag of words, but for huge Datasets use Word2Vec
+			  
+TF-IDF:
+       After Stemming/Lemmatization
+	   TF=>Term Frequency = (No. of rep of a word in Sentence)/(Total No. of words in a Sentence)
+	   IDF=>Inverse Document Frequency = log((Total No. of Sentences)/(No. of Sentences containing the word))
+	   Result Vector = TF*IDF
+	   Used to identify the importance of a word, gives importance to uncommon words.
+	   no order precedency is taken into account.
+			  
+Word2Vec:
+        Inorder to overcome order presidence ignorance and aviod overfiting Word2Vec is preffered compared to TF-IDF and Bag of words. Can have high computation costs.
+		Each word is basically represented as a vector of 32 or more dimensions instead of a singel number to preserve the semantic information and relation b/w different words.
+        
+n-grams:
+        pairing of adjecent words to the columar count.
+		ngram_range is used to specify the range of pairs like (1,1) is unigram (1,2) is unigram and bigrams (1,3) is unigrams, bigrams and trigrams.
+max features:
+        build a vocabulary that only consider the top max_features ordered by term frequency across the corpus.
+		max_features=200 considers only top two hundred words according to their frequency counts.
+         
+
+Useful Libraries:
+nltk: for Tokenization, Stemming, Lemmatization
+CountVectorizer: for Bag of words, does one-to-one mapping
+TfidfVectorizer: for TF-IDF, does one-to-one mapping
