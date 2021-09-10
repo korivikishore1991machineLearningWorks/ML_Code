@@ -1,0 +1,27 @@
+SageMaker Model Devlopment and Deployment process:
+    Data creation in S3:
+    create s3 objects for Train, Test and Model-deployment_Output_Path
+    save train and test data to S3
+    
+    Model fitting using EC2:
+    read the saved train and test data from s3
+    build a container object from the imported AWS ML models
+    initialize Hyperparameters based on the training and crossvalidation from the local computation
+    construct an estimator to train and fit on training data based on the container and Model-deployment_Output_Path
+    fit the estimator using train and test s3 data objects.
+    
+    Model deployment using EC2:
+    create a deployment_Object by deploying the fitted model estimator
+    predict using the deployment_Object by serializing the data
+    
+    Termination:
+    Terminate the deployment_Object one prediction is Done by deleting The Endpoints
+    After deleting the deployment_Object delet the S3 data if not need. 
+
+
+
+AWS Acess credentials:
+    for TestBucket:
+        os.environ["AWS_DEFAULT_REGION"] = 'us-east-2'
+        os.environ["AWS_ACCESS_KEY_ID"] = 'AKIAXVWTBCBWQNKJHY3F'
+        os.environ["AWS_SECRET_ACCESS_KEY"] = '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'
